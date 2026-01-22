@@ -1,0 +1,30 @@
+Windows Registry Editor Version 5.00
+
+; =========================
+; TwoPews - SAFE Performance Tweaks (UNDO)
+; Restores common defaults / removes added keys
+; =========================
+
+; --- Multimedia System Profile (restore defaults) ---
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile]
+"NetworkThrottlingIndex"=dword:0000000a
+"SystemResponsiveness"=dword:00000014
+
+; --- Multimedia Tasks: Games (delete values to revert to system defaults) ---
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games]
+"GPU Priority"=-
+"Priority"=-
+"Scheduling Category"=-
+"SFIO Priority"=-
+
+; --- Power Throttling (restore default behavior) ---
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerThrottling]
+"PowerThrottlingOff"=-
+
+; --- UI responsiveness (restore common default) ---
+[HKEY_CURRENT_USER\Control Panel\Desktop]
+"MenuShowDelay"="400"
+
+; --- Remove Startup Delay override (delete key/value) ---
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Serialize]
+"StartupDelayInMSec"=-
